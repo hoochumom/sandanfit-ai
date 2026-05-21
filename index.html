@@ -1,348 +1,48 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>산단핏 AI | 산업단지 기업 성장진단</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="주요 메뉴">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true">S</div>
-          <div>
-            <strong>산단핏 AI</strong>
-            <span>기업 성장진단</span>
-          </div>
-        </div>
-
-        <nav class="nav-list">
-          <a href="#overview" class="nav-item active" data-section="overview">
-            <span class="icon" aria-hidden="true">⌂</span>
-            대시보드
-          </a>
-          <a href="#diagnosis" class="nav-item" data-section="diagnosis">
-            <span class="icon" aria-hidden="true">◈</span>
-            AI 진단
-          </a>
-          <a href="#partners" class="nav-item" data-section="partners">
-            <span class="icon" aria-hidden="true">⌖</span>
-            협력사 추천
-          </a>
-          <a href="#programs" class="nav-item" data-section="programs">
-            <span class="icon" aria-hidden="true">▣</span>
-            지원사업
-          </a>
-          <a href="#report" class="nav-item" data-section="report">
-            <span class="icon" aria-hidden="true">▤</span>
-            성장 리포트
-          </a>
-        </nav>
-
-        <div class="source-box">
-          <span>활용 데이터</span>
-          <p>한국산업단지공단 공장등록생산정보, 산업단지 통계, 국가산단 산업동향 데이터 기반</p>
-        </div>
-      </aside>
-
-      <main class="workspace">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">Industrial Complex Growth Intelligence</p>
-            <h1>산업단지 기업을 위한 AI 성장진단 플랫폼</h1>
-          </div>
-          <div class="top-actions">
-            <button class="ghost-button" type="button" data-scroll="report">리포트 보기</button>
-            <button class="primary-button" type="button" data-scroll="diagnosis">진단 시작</button>
-          </div>
-        </header>
-
-        <section id="overview" class="section overview-grid">
-          <div class="hero-panel">
-            <div class="hero-copy">
-              <span class="status-pill">공모전 MVP 시연 화면</span>
-              <h2>기업명만 입력하면 산단 내 성장 가능성과 협력 후보를 바로 분석합니다.</h2>
-              <p>
-                업종, 생산품, 소재지, 산업단지 흐름을 함께 분석해 유사·보완 기업과 맞춤 지원사업을 추천하고
-                발표용 AI 리포트까지 생성합니다.
-              </p>
-              <div class="quick-search">
-                <input id="companySearch" type="text" value="대한정밀가공" aria-label="기업명 또는 업종" />
-                <button id="runDiagnosis" type="button">AI 진단 실행</button>
-              </div>
-            </div>
-            <div class="hero-visual" aria-label="산업단지 분석 시각화">
-              <div class="map-board">
-                <span class="district d1">반월시화</span>
-                <span class="district d2">남동</span>
-                <span class="district d3">창원</span>
-                <span class="district d4">구미</span>
-                <span class="route r1"></span>
-                <span class="route r2"></span>
-                <span class="node n1"></span>
-                <span class="node n2"></span>
-                <span class="node n3"></span>
-                <span class="node n4"></span>
-                <span class="node n5"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="metric-strip" aria-label="핵심 진단 지표">
-            <article class="metric">
-              <span>성장 가능성</span>
-              <strong id="growthScore">82</strong>
-              <small>동일 업종 상위 18%</small>
-            </article>
-            <article class="metric">
-              <span>협력사 후보</span>
-              <strong id="partnerCount">32</strong>
-              <small>인근 25km 기준</small>
-            </article>
-            <article class="metric">
-              <span>지원사업</span>
-              <strong id="programCount">5</strong>
-              <small>신청 가능성 높음</small>
-            </article>
-            <article class="metric">
-              <span>데이터 신뢰도</span>
-              <strong>94%</strong>
-              <small>공공데이터 매칭률</small>
-            </article>
-          </div>
-        </section>
-
-        <section id="diagnosis" class="section split-layout">
-          <div class="panel form-panel">
-            <div class="section-head">
-              <p class="eyebrow">AI Diagnosis</p>
-              <h2>기업 프로필 입력</h2>
-            </div>
-            <div class="form-grid">
-              <label>
-                기업명
-                <input id="companyName" type="text" value="대한정밀가공" />
-              </label>
-              <label>
-                지역
-                <select id="region">
-                  <option>경기도</option>
-                  <option>인천광역시</option>
-                  <option>경상남도</option>
-                  <option>경상북도</option>
-                </select>
-              </label>
-              <label>
-                산업단지
-                <select id="complex">
-                  <option>반월시화국가산업단지</option>
-                  <option>남동국가산업단지</option>
-                  <option>창원국가산업단지</option>
-                  <option>구미국가산업단지</option>
-                </select>
-              </label>
-              <label>
-                업종
-                <select id="industry">
-                  <option>자동차 부품 제조</option>
-                  <option>전자부품 제조</option>
-                  <option>정밀기계 제조</option>
-                  <option>금속가공 제조</option>
-                </select>
-              </label>
-              <label>
-                주 생산품
-                <input id="product" type="text" value="금속 가공 부품" />
-              </label>
-              <label>
-                기업 규모
-                <select id="size">
-                  <option>직원 30명 / 매출 25억</option>
-                  <option>직원 12명 / 매출 8억</option>
-                  <option>직원 80명 / 매출 90억</option>
-                </select>
-              </label>
-            </div>
-            <fieldset class="goal-set">
-              <legend>현재 목표</legend>
-              <label><input type="checkbox" checked /> 거래처 발굴</label>
-              <label><input type="checkbox" checked /> 지원사업 신청</label>
-              <label><input type="checkbox" /> 설비 확장</label>
-              <label><input type="checkbox" /> 수출 준비</label>
-            </fieldset>
-            <button class="primary-button wide" id="profileDiagnosis" type="button">프로필 기반 재진단</button>
-          </div>
-
-          <div class="panel insight-panel">
-            <div class="section-head">
-              <p class="eyebrow">Live Result</p>
-              <h2 id="resultTitle">대한정밀가공 진단 결과</h2>
-            </div>
-            <div class="score-ring" aria-label="성장 가능성 점수">
-              <svg viewBox="0 0 160 160" role="img">
-                <circle cx="80" cy="80" r="62" class="ring-bg"></circle>
-                <circle cx="80" cy="80" r="62" class="ring-value"></circle>
-              </svg>
-              <div>
-                <strong id="scoreText">82</strong>
-                <span>성장 가능성</span>
-              </div>
-            </div>
-            <div class="insight-list">
-              <div>
-                <span class="tag blue">산업동향</span>
-                <p>반월시화 산단 자동차부품 업종은 가동률과 고용 지표가 안정권입니다.</p>
-              </div>
-              <div>
-                <span class="tag green">협력기회</span>
-                <p>후가공·표면처리 공정 보완 기업이 인근에 밀집해 납기 단축 가능성이 큽니다.</p>
-              </div>
-              <div>
-                <span class="tag amber">다음 액션</span>
-                <p>스마트공장 고도화 지원사업과 제조데이터 컨설팅을 우선 검토하세요.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="partners" class="section partners-layout">
-          <div class="section-head">
-            <p class="eyebrow">Partner Matching</p>
-            <h2>협력사 추천</h2>
-          </div>
-          <div class="map-panel panel">
-            <div class="industrial-map" aria-label="협력사 분포 지도">
-              <button class="pin p1 active" type="button" data-partner="a"><span>A</span></button>
-              <button class="pin p2" type="button" data-partner="b"><span>B</span></button>
-              <button class="pin p3" type="button" data-partner="c"><span>C</span></button>
-              <button class="pin p4" type="button" data-partner="d"><span>D</span></button>
-              <div class="map-label">반월시화국가산업단지</div>
-            </div>
-            <div class="partner-detail">
-              <span class="tag blue">적합도 91%</span>
-              <h3 id="partnerName">A금속가공</h3>
-              <p id="partnerDesc">같은 산단에 위치한 후가공 가능 기업입니다. 생산품 유사도와 공정 보완성이 가장 높습니다.</p>
-              <button class="ghost-button" type="button">협업 제안서 생성</button>
-            </div>
-          </div>
-          <div class="partner-list">
-            <article class="partner-card active" data-partner-card="a">
-              <strong>A금속가공</strong>
-              <span>적합도 91%</span>
-              <p>후가공 가능 · 같은 산단 · 유사 납품군</p>
-            </article>
-            <article class="partner-card" data-partner-card="b">
-              <strong>B정밀부품</strong>
-              <span>적합도 87%</span>
-              <p>정밀 절삭 · 12km 인근 · 설비 보완</p>
-            </article>
-            <article class="partner-card" data-partner-card="c">
-              <strong>C표면처리</strong>
-              <span>적합도 84%</span>
-              <p>표면처리 · 납기 단축 · 품질 인증 보유</p>
-            </article>
-            <article class="partner-card" data-partner-card="d">
-              <strong>D물류테크</strong>
-              <span>적합도 78%</span>
-              <p>산단 공동물류 · 출하 리드타임 개선</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="programs" class="section">
-          <div class="section-head">
-            <p class="eyebrow">Support Programs</p>
-            <h2>맞춤 지원사업 추천</h2>
-          </div>
-          <div class="program-table panel">
-            <div class="table-row header">
-              <span>지원사업</span>
-              <span>매칭률</span>
-              <span>지원 규모</span>
-              <span>마감</span>
-              <span>다음 단계</span>
-            </div>
-            <div class="table-row">
-              <span>스마트공장 고도화 지원</span>
-              <strong>94%</strong>
-              <span>최대 5천만 원</span>
-              <span>2026-07-15</span>
-              <button type="button">초안 작성</button>
-            </div>
-            <div class="table-row">
-              <span>산업단지 입주기업 R&D 바우처</span>
-              <strong>89%</strong>
-              <span>최대 3천만 원</span>
-              <span>2026-07-24</span>
-              <button type="button">요건 확인</button>
-            </div>
-            <div class="table-row">
-              <span>제조데이터 활용 컨설팅</span>
-              <strong>86%</strong>
-              <span>전문가 매칭</span>
-              <span>상시</span>
-              <button type="button">상담 예약</button>
-            </div>
-            <div class="table-row">
-              <span>공정개선 설비 지원</span>
-              <strong>81%</strong>
-              <span>최대 2천만 원</span>
-              <span>2026-08-02</span>
-              <button type="button">체크리스트</button>
-            </div>
-          </div>
-        </section>
-
-        <section id="report" class="section report-layout">
-          <div class="panel report-panel">
-            <div class="report-toolbar">
-              <div>
-                <p class="eyebrow">AI Growth Report</p>
-                <h2>AI 성장진단 리포트</h2>
-              </div>
-              <button class="primary-button" type="button" id="refreshReport">리포트 재생성</button>
-            </div>
-            <div class="report-paper">
-              <div class="report-title">
-                <div>
-                  <span>산단핏 AI</span>
-                  <h3 id="reportCompany">대한정밀가공 성장진단 리포트</h3>
-                </div>
-                <strong>2026.05</strong>
-              </div>
-              <div class="report-grid">
-                <section>
-                  <h4>1. 현재 위치</h4>
-                  <p>동일 업종 기업 대비 성장 가능성 상위 18%이며, 인근 협력 가능 기업 32곳이 확인됩니다.</p>
-                </section>
-                <section>
-                  <h4>2. 추천 전략</h4>
-                  <p>표면처리 협력사를 통한 납기 단축, 스마트공장 지원사업 신청, 지역 네트워크 기반 신규 거래처 발굴을 권장합니다.</p>
-                </section>
-                <section>
-                  <h4>3. 다음 액션</h4>
-                  <p>추천 협력사 3곳에 미팅 제안서를 발송하고, 지원사업 신청서 초안을 이번 주 내 작성하세요.</p>
-                </section>
-                <section>
-                  <h4>4. 데이터 근거</h4>
-                  <p>공장등록생산정보, 전국산업단지현황통계, 국가산업단지 산업동향 지표를 기반으로 산출했습니다.</p>
-                </section>
-              </div>
-            </div>
-          </div>
-          <aside class="panel checklist-panel">
-            <h3>제출용 완성도 체크</h3>
-            <label><input type="checkbox" checked /> 산업부 산하기관 데이터 활용 명시</label>
-            <label><input type="checkbox" checked /> 문제 정의와 기대효과 수치화</label>
-            <label><input type="checkbox" checked /> AI 추천 구조 설명 가능</label>
-            <label><input type="checkbox" /> 실제 API 연동 테스트</label>
-            <label><input type="checkbox" /> 발표용 10분 시연 시나리오</label>
-          </aside>
-        </section>
-      </main>
-    </div>
-
-    <script src="./app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>산단핏 AI | 산업단지 기업 성장진단</title>
+  <style>
+    :root{--bg:#f5f7fb;--ink:#172033;--muted:#667085;--navy:#10233f;--blue:#2563eb;--cyan:#0891b2;--green:#14825d;--amber:#b7791f;--line:#d9e2ec;--card:#fff;--shadow:0 18px 45px rgba(18,53,91,.11)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0}button,input,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}.side{position:sticky;top:0;height:100vh;padding:24px 18px;background:var(--navy);color:#fff;display:flex;flex-direction:column;gap:22px}.brand{display:flex;gap:12px;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.14)}.mark{width:42px;height:42px;border-radius:8px;background:#38bdf8;color:#082f49;display:grid;place-items:center;font-weight:900}.brand strong{display:block;font-size:18px}.brand span,.source span{color:#a8c4df;font-size:12px}.nav{display:grid;gap:6px}.nav a{display:flex;align-items:center;gap:10px;min-height:42px;padding:0 12px;border-radius:8px;color:#c7d7eb;text-decoration:none;font-weight:800}.nav a:hover,.nav a.active{background:rgba(56,189,248,.14);color:#fff}.source{margin-top:auto;padding:14px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.06)}.source p{margin:8px 0 0;color:#e5edf7;font-size:13px;line-height:1.55}.main{padding:26px 30px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:22px}.eyebrow{margin:0 0 6px;color:var(--cyan);font-size:12px;font-weight:900;text-transform:uppercase}h1,h2,h3,h4,p{margin-top:0}h1{margin-bottom:0;font-size:26px}h2{font-size:22px}.actions{display:flex;gap:10px}.btn,.btn2,.table button{min-height:40px;border:0;border-radius:8px;padding:0 15px;font-weight:900}.btn{background:var(--blue);color:#fff}.btn2{background:#e8eef8;color:var(--navy)}.section{scroll-margin-top:22px;margin-top:22px}.panel,.metric,.partner{background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}.hero{display:grid;grid-template-columns:minmax(360px,.98fr) minmax(420px,1.02fr);gap:22px;min-height:350px;padding:24px;background:linear-gradient(135deg,#fff 0%,#eef7fb 72%,#edf7ef 100%);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}.hero h2{font-size:34px;line-height:1.28}.hero p{color:var(--muted);line-height:1.7}.pill,.tag{display:inline-flex;align-items:center;min-height:24px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:900}.pill{margin-bottom:14px;background:#dcfce7;color:#166534}.search{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:10px;margin-top:20px}input,select{width:100%;min-height:42px;border:1px solid #cbd5e1;border-radius:8px;padding:0 12px;background:#fff;color:var(--ink)}.map{position:relative;min-height:310px;height:100%;border:1px solid #c9d9e7;border-radius:8px;overflow:hidden;background:linear-gradient(90deg,rgba(37,99,235,.09) 1px,transparent 1px),linear-gradient(0deg,rgba(37,99,235,.09) 1px,transparent 1px),radial-gradient(circle at 22% 28%,rgba(20,130,93,.18),transparent 22%),radial-gradient(circle at 78% 68%,rgba(8,145,178,.22),transparent 24%),#f8fbff;background-size:42px 42px,42px 42px,auto,auto,auto}.district{position:absolute;padding:7px 10px;border-radius:6px;background:#fff;border:1px solid #cbd5e1;color:var(--navy);font-size:12px;font-weight:900}.d1{left:15%;top:18%}.d2{right:18%;top:22%}.d3{left:28%;bottom:18%}.d4{right:16%;bottom:22%}.node,.pin{position:absolute;border-radius:50%;transform:translate(-50%,-50%)}.node{width:14px;height:14px;background:var(--green);box-shadow:0 0 0 8px rgba(20,130,93,.16)}.n1{left:26%;top:42%}.n2{left:48%;top:34%;background:var(--blue)}.n3{left:62%;top:57%}.n4{left:36%;top:68%;background:var(--amber)}.n5{left:76%;top:44%;background:#c2410c}.route{position:absolute;height:3px;border-radius:999px;background:rgba(37,99,235,.36);transform-origin:left center}.r1{width:280px;left:27%;top:42%;transform:rotate(-10deg)}.r2{width:230px;left:38%;top:68%;transform:rotate(-30deg);background:rgba(20,130,93,.34)}.metrics,.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}.metric{padding:17px 18px}.metric span,.metric small{display:block;color:var(--muted)}.metric strong{display:block;margin:6px 0 4px;font-size:30px;color:var(--navy)}.process{gap:0;padding:0;overflow:hidden}.process div{min-height:118px;padding:18px;border-right:1px solid #e2e8f0}.process div:last-child{border-right:0}.process strong{display:grid;place-items:center;width:30px;height:30px;margin-bottom:10px;border-radius:50%;background:var(--navy);color:#fff}.process span{font-weight:900}.process p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.55}.split{display:grid;grid-template-columns:.95fr 1.05fr;gap:16px}.panel{padding:20px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}label{display:grid;gap:7px;color:#344054;font-size:13px;font-weight:800}.goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 0;padding:14px;border:1px solid #dbe4ef;border-radius:8px}.goals label,.checks label{display:flex;gap:8px;align-items:center}.goals input,.checks input{width:16px;min-height:16px}.wide{width:100%;margin-top:14px}.result{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;align-items:center}.result .head{grid-column:1/-1}.ring{position:relative;width:176px;height:176px}.ring svg{width:176px;height:176px;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:16}.ring .bg{stroke:#e5edf7}.ring .val{stroke:var(--green);stroke-linecap:round;stroke-dasharray:389;stroke-dashoffset:70}.ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.ring strong{font-size:38px;color:var(--navy)}.ring span{font-size:13px;color:var(--muted);font-weight:900}.insights{display:grid;gap:12px}.insights div,.source-list div,.report-grid section{padding:14px;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc}.insights p,.source-list p,.formula p,.report-grid p{margin:8px 0 0;color:var(--muted);line-height:1.6}.blue{background:#dbeafe;color:#1d4ed8}.green{background:#dcfce7;color:#166534}.amber{background:#fef3c7;color:#92400e}.partners{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px}.partners .head{grid-column:1/-1}.map-panel{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px}.imap{min-height:360px}.pin{width:42px;height:42px;border:0;background:var(--navy);color:#fff;box-shadow:0 0 0 8px rgba(18,53,91,.12)}.pin.active{background:var(--green);box-shadow:0 0 0 10px rgba(20,130,93,.18)}.p1{left:36%;top:34%}.p2{left:58%;top:48%}.p3{left:44%;top:66%}.p4{left:74%;top:28%}.map-label{position:absolute;left:20px;bottom:18px;padding:9px 12px;border-radius:6px;background:rgba(255,255,255,.92);font-weight:900}.plist{display:grid;gap:12px;align-content:start}.partner{padding:16px}.partner.active{border-color:var(--green);background:#f0fdf4}.partner strong,.partner span{display:block}.partner span{margin:5px 0;color:var(--green);font-weight:900}.partner p{margin:0;color:var(--muted);line-height:1.5}.table{padding:0;overflow:hidden}.row{display:grid;grid-template-columns:2.1fr .7fr 1fr .8fr 110px;align-items:center;gap:12px;min-height:58px;padding:0 18px;border-top:1px solid #e2e8f0}.row.header{min-height:48px;border-top:0;background:#12355b;color:#fff;font-weight:900}.row strong{color:var(--green)}.row button{min-height:34px;background:#e8eef8;color:var(--navy);font-size:13px}.data{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:16px}.data .head,.formula{grid-column:1/-1}.title-row{display:flex;justify-content:space-between;gap:14px;margin-bottom:18px}.title-row p{margin:0;color:var(--muted)}.bars{display:grid;gap:15px}.bars div{display:grid;grid-template-columns:120px minmax(0,1fr) 54px;gap:12px;align-items:center}.bars div:before{content:"";grid-column:2;grid-row:1;height:12px;border-radius:999px;background:linear-gradient(90deg,var(--green) var(--v),#e2e8f0 var(--v))}.bars span{font-size:13px;font-weight:900;color:#344054}.source-list{display:grid;gap:12px}.source-list span{display:block;color:var(--cyan);font-size:12px;font-weight:900}.source-list strong{display:block;margin:5px 0 6px;color:var(--navy)}.fbox{display:grid;gap:6px;margin-bottom:12px;padding:15px;border:1px solid #cae8df;border-radius:8px;background:#eef6f4}.fbox span{color:var(--green);font-weight:900}.report{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}.report-panel{padding:0;overflow:hidden}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px;border-bottom:1px solid #e2e8f0}.report-actions{display:flex;gap:10px}.paper{margin:20px;padding:24px;border:1px solid #dbe4ef;border-radius:8px;background:#fff}.rtitle{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:2px solid var(--navy)}.rtitle span{color:var(--cyan);font-weight:900}.rtitle h3{margin:6px 0 0;font-size:24px}.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}.checks{display:grid;align-content:start;gap:13px;color:var(--muted);line-height:1.65}.toast{position:fixed;right:24px;bottom:24px;z-index:20;max-width:min(420px,calc(100vw - 32px));padding:13px 16px;border-radius:8px;background:var(--navy);color:#fff;font-weight:900;box-shadow:0 16px 36px rgba(16,35,63,.24);opacity:0;transform:translateY(14px);transition:.18s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}
+    @media(max-width:1120px){.app{grid-template-columns:1fr}.side{position:static;height:auto}.nav{grid-template-columns:repeat(6,minmax(0,1fr))}.hero,.split,.partners,.report,.data,.map-panel{grid-template-columns:1fr}}
+    @media(max-width:760px){.main{padding:18px}.top,.toolbar{align-items:flex-start;flex-direction:column}.actions,.report-actions{width:100%}.actions button,.report-actions button{flex:1}.nav,.metrics,.process,.formgrid,.goals,.report-grid{grid-template-columns:1fr}.process div{border-right:0;border-bottom:1px solid #e2e8f0}.process div:last-child{border-bottom:0}.search{grid-template-columns:1fr}.hero h2{font-size:27px}.result{grid-template-columns:1fr}.row{grid-template-columns:1fr;padding:14px 16px}.bars div{grid-template-columns:92px minmax(0,1fr) 46px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="brand"><div class="mark">S</div><div><strong>산단핏 AI</strong><span>기업 성장진단</span></div></div>
+      <nav class="nav">
+        <a class="active" href="#overview">⌂ 대시보드</a><a href="#diagnosis">◈ AI 진단</a><a href="#partners">⌖ 협력사 추천</a><a href="#programs">▣ 지원사업</a><a href="#data">◎ 데이터 로직</a><a href="#report">▤ 성장 리포트</a>
+      </nav>
+      <div class="source"><span>활용 데이터</span><p>한국산업단지공단 공장등록생산정보, 산업단지 통계, 국가산단 산업동향 데이터 기반</p></div>
+    </aside>
+    <main class="main">
+      <header class="top"><div><p class="eyebrow">Industrial Complex Growth Intelligence</p><h1>산업단지 기업을 위한 AI 성장진단 플랫폼</h1></div><div class="actions"><button class="btn2" data-go="report">리포트 보기</button><button class="btn" data-go="diagnosis">진단 시작</button></div></header>
+      <section id="overview" class="section">
+        <div class="hero"><div><span class="pill">공모전 MVP 시연 화면</span><h2>기업명만 입력하면 산단 내 성장 가능성과 협력 후보를 바로 분석합니다.</h2><p>업종, 생산품, 소재지, 산업단지 흐름을 함께 분석해 유사·보완 기업과 맞춤 지원사업을 추천하고 발표용 AI 리포트까지 생성합니다.</p><div class="search"><input id="companySearch" value="대한정밀가공" aria-label="기업명 또는 업종"><button id="runDiagnosis" class="btn">AI 진단 실행</button></div></div><div class="map"><span class="district d1">반월시화</span><span class="district d2">남동</span><span class="district d3">창원</span><span class="district d4">구미</span><span class="route r1"></span><span class="route r2"></span><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span><span class="node n5"></span></div></div>
+        <div class="metrics"><article class="metric"><span>성장 가능성</span><strong id="growthScore">82</strong><small>동일 업종 상위 18%</small></article><article class="metric"><span>협력사 후보</span><strong id="partnerCount">32</strong><small>인근 25km 기준</small></article><article class="metric"><span>지원사업</span><strong id="programCount">5</strong><small>신청 가능성 높음</small></article><article class="metric"><span>데이터 신뢰도</span><strong>94%</strong><small>공공데이터 매칭률</small></article></div>
+        <div class="process panel"><div><strong>1</strong><span>기업 프로필 수집</span><p>업종, 생산품, 소재지, 목표를 표준화합니다.</p></div><div><strong>2</strong><span>공공데이터 매칭</span><p>공장등록정보와 산단 통계를 연결합니다.</p></div><div><strong>3</strong><span>추천 점수 산정</span><p>거리, 공정 보완성, 성장성을 가중 계산합니다.</p></div><div><strong>4</strong><span>AI 리포트 생성</span><p>다음 액션과 제출용 근거를 정리합니다.</p></div></div>
+      </section>
+      <section id="diagnosis" class="section split"><div class="panel"><div class="head"><p class="eyebrow">AI Diagnosis</p><h2>기업 프로필 입력</h2></div><div class="formgrid"><label>기업명<input id="companyName" value="대한정밀가공"></label><label>지역<select><option>경기도</option><option>인천광역시</option><option>경상남도</option></select></label><label>산업단지<select><option>반월시화국가산업단지</option><option>남동국가산업단지</option><option>창원국가산업단지</option></select></label><label>업종<select id="industry"><option>자동차 부품 제조</option><option>전자부품 제조</option><option>정밀기계 제조</option><option>금속가공 제조</option></select></label><label>주 생산품<input value="금속 가공 부품"></label><label>기업 규모<select><option>직원 30명 / 매출 25억</option><option>직원 12명 / 매출 8억</option></select></label></div><fieldset class="goals"><legend>현재 목표</legend><label><input type="checkbox" checked> 거래처 발굴</label><label><input type="checkbox" checked> 지원사업 신청</label><label><input type="checkbox"> 설비 확장</label><label><input type="checkbox"> 수출 준비</label></fieldset><button id="profileDiagnosis" class="btn wide">프로필 기반 재진단</button></div><div class="panel result"><div class="head"><p class="eyebrow">Live Result</p><h2 id="resultTitle">대한정밀가공 진단 결과</h2></div><div class="ring"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="62"></circle><circle class="val" cx="80" cy="80" r="62"></circle></svg><div><strong id="scoreText">82</strong><span>성장 가능성</span></div></div><div class="insights"><div><span class="tag blue">산업동향</span><p>반월시화 산단 자동차부품 업종은 가동률과 고용 지표가 안정권입니다.</p></div><div><span class="tag green">협력기회</span><p>후가공·표면처리 공정 보완 기업이 인근에 밀집해 납기 단축 가능성이 큽니다.</p></div><div><span class="tag amber">다음 액션</span><p>스마트공장 고도화 지원사업과 제조데이터 컨설팅을 우선 검토하세요.</p></div></div></div></section>
+      <section id="partners" class="section partners"><div class="head"><p class="eyebrow">Partner Matching</p><h2>협력사 추천</h2></div><div class="map-panel panel"><div class="map imap"><button class="pin p1 active" data-partner="a">A</button><button class="pin p2" data-partner="b">B</button><button class="pin p3" data-partner="c">C</button><button class="pin p4" data-partner="d">D</button><div class="map-label">반월시화국가산업단지</div></div><div><span class="tag blue" id="partnerScore">적합도 91%</span><h3 id="partnerName">A금속가공</h3><p id="partnerDesc">같은 산단에 위치한 후가공 가능 기업입니다. 생산품 유사도와 공정 보완성이 가장 높습니다.</p><button class="btn2 action-btn">협업 제안서 생성</button></div></div><div class="plist"><article class="partner active" data-card="a"><strong>A금속가공</strong><span>적합도 91%</span><p>후가공 가능 · 같은 산단 · 유사 납품군</p></article><article class="partner" data-card="b"><strong>B정밀부품</strong><span>적합도 87%</span><p>정밀 절삭 · 12km 인근 · 설비 보완</p></article><article class="partner" data-card="c"><strong>C표면처리</strong><span>적합도 84%</span><p>표면처리 · 납기 단축 · 품질 인증 보유</p></article><article class="partner" data-card="d"><strong>D물류테크</strong><span>적합도 78%</span><p>산단 공동물류 · 출하 리드타임 개선</p></article></div></section>
+      <section id="programs" class="section"><div class="head"><p class="eyebrow">Support Programs</p><h2>맞춤 지원사업 추천</h2></div><div class="table panel"><div class="row header"><span>지원사업</span><span>매칭률</span><span>지원 규모</span><span>마감</span><span>다음 단계</span></div><div class="row"><span>스마트공장 고도화 지원</span><strong>94%</strong><span>최대 5천만 원</span><span>2026-07-15</span><button>초안 작성</button></div><div class="row"><span>산업단지 입주기업 R&D 바우처</span><strong>89%</strong><span>최대 3천만 원</span><span>2026-07-24</span><button>요건 확인</button></div><div class="row"><span>제조데이터 활용 컨설팅</span><strong>86%</strong><span>전문가 매칭</span><span>상시</span><button>상담 예약</button></div><div class="row"><span>공정개선 설비 지원</span><strong>81%</strong><span>최대 2천만 원</span><span>2026-08-02</span><button>체크리스트</button></div></div></section>
+      <section id="data" class="section data"><div class="head"><p class="eyebrow">Data Logic</p><h2>공공데이터 활용 구조</h2></div><div class="panel"><div class="title-row"><div><h3>반월시화 산단 산업동향</h3><p>국가산업단지 산업동향 지표를 가정한 발표용 시각화입니다.</p></div><span class="tag green">성장 안정권</span></div><div class="bars"><div style="--v:82%"><span>가동률</span><strong>82%</strong></div><div style="--v:76%"><span>고용 안정성</span><strong>76%</strong></div><div style="--v:69%"><span>수출 회복력</span><strong>69%</strong></div><div style="--v:88%"><span>협력 밀도</span><strong>88%</strong></div></div></div><div class="panel"><h3>데이터 연결표</h3><div class="source-list"><div><span>한국산업단지공단</span><strong>공장등록생산정보</strong><p>기업명, 소재지, 업종, 생산품 기반으로 후보 기업을 탐색합니다.</p></div><div><span>한국산업단지공단</span><strong>전국산업단지현황통계</strong><p>지역·산단별 산업 규모와 입지 비교 지표를 만듭니다.</p></div><div><span>국가산업단지</span><strong>산업동향정보</strong><p>생산, 수출, 고용, 가동률 흐름을 성장진단 점수에 반영합니다.</p></div></div></div><div class="panel formula"><h3>추천 점수 산정 예시</h3><div class="fbox"><span>협력사 적합도</span><strong>공정 보완성 35% + 생산품 유사도 25% + 거리 20% + 산단 성장성 20%</strong></div><p>실제 API 연동 전 MVP에서는 더미 점수로 시연하고, API 연동 후에는 데이터 필드별 가중치를 조정해 추천 결과를 갱신합니다.</p></div></section>
+      <section id="report" class="section report"><div class="panel report-panel"><div class="toolbar"><div><p class="eyebrow">AI Growth Report</p><h2>AI 성장진단 리포트</h2></div><div class="report-actions"><button id="copySummary" class="btn2">제출요약 복사</button><button id="refreshReport" class="btn">리포트 재생성</button></div></div><div class="paper"><div class="rtitle"><div><span>산단핏 AI</span><h3 id="reportCompany">대한정밀가공 성장진단 리포트</h3></div><strong>2026.05</strong></div><div class="report-grid"><section><h4>1. 현재 위치</h4><p>동일 업종 기업 대비 성장 가능성 상위 18%이며, 인근 협력 가능 기업 32곳이 확인됩니다.</p></section><section><h4>2. 추천 전략</h4><p>표면처리 협력사를 통한 납기 단축, 스마트공장 지원사업 신청, 지역 네트워크 기반 신규 거래처 발굴을 권장합니다.</p></section><section><h4>3. 다음 액션</h4><p>추천 협력사 3곳에 미팅 제안서를 발송하고, 지원사업 신청서 초안을 이번 주 내 작성하세요.</p></section><section><h4>4. 데이터 근거</h4><p>공장등록생산정보, 전국산업단지현황통계, 국가산업단지 산업동향 지표를 기반으로 산출했습니다.</p></section></div></div></div><aside class="panel checks"><h3>제출용 완성도 체크</h3><label><input type="checkbox" checked> 산업부 산하기관 데이터 활용 명시</label><label><input type="checkbox" checked> 문제 정의와 기대효과 수치화</label><label><input type="checkbox" checked> AI 추천 구조 설명 가능</label><label><input type="checkbox"> 실제 API 연동 테스트</label><label><input type="checkbox"> 발표용 10분 시연 시나리오</label></aside></section>
+    </main>
+  </div>
+  <script>
+    const partners={a:["A금속가공","적합도 91%","같은 산단에 위치한 후가공 가능 기업입니다. 생산품 유사도와 공정 보완성이 가장 높습니다."],b:["B정밀부품","적합도 87%","정밀 절삭 설비를 보유한 인근 기업입니다. 소량 다품종 생산 대응력이 좋아 신규 발주 대응에 적합합니다."],c:["C표면처리","적합도 84%","표면처리와 품질 인증 역량이 강한 기업입니다. 납기 단축과 후공정 안정화에 도움이 됩니다."],d:["D물류테크","적합도 78%","산단 공동물류 운영 경험이 있는 기업입니다. 출하 리드타임 개선과 물류비 절감 시나리오에 적합합니다."]};
+    const presets={"자동차 부품 제조":[82,32,5,"동일 업종 상위 18%"],"전자부품 제조":[78,27,4,"동일 업종 상위 24%"],"정밀기계 제조":[86,38,6,"동일 업종 상위 14%"],"금속가공 제조":[80,35,5,"동일 업종 상위 21%"]};
+    const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+    function go(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth",block:"start"});$$('.nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}
+    function toast(msg){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+    function diagnose(){const name=$('#companyName').value.trim()||$('#companySearch').value.trim()||'대한정밀가공';const p=presets[$('#industry').value]||presets['자동차 부품 제조'];$('#companySearch').value=name;$('#growthScore').textContent=p[0];$('#partnerCount').textContent=p[1];$('#programCount').textContent=p[2];$('#scoreText').textContent=p[0];$('.val').style.strokeDashoffset=389-(389*p[0]/100);$('#resultTitle').textContent=name+' 진단 결과';$('#reportCompany').textContent=name+' 성장진단 리포트';$('.metric small').textContent=p[3];go('diagnosis')}
+    function selectPartner(id){const p=partners[id];if(!p)return;$$('.pin').forEach(x=>x.classList.toggle('active',x.dataset.partner===id));$$('.partner').forEach(x=>x.classList.toggle('active',x.dataset.card===id));$('#partnerName').textContent=p[0];$('#partnerScore').textContent=p[1];$('#partnerDesc').textContent=p[2]}
+    $$('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));$$('.nav a').forEach(a=>a.onclick=e=>{e.preventDefault();go(a.getAttribute('href').slice(1))});$('#runDiagnosis').onclick=()=>{$('#companyName').value=$('#companySearch').value;diagnose()};$('#profileDiagnosis').onclick=diagnose;$$('.pin').forEach(p=>p.onclick=()=>selectPartner(p.dataset.partner));$$('.partner').forEach(c=>c.onclick=()=>selectPartner(c.dataset.card));$$('.row button,.action-btn').forEach(b=>b.onclick=()=>toast(b.textContent+' 준비 화면을 생성했습니다.'));$('#refreshReport').onclick=()=>{toast('AI 성장진단 리포트를 다시 생성했습니다.');$('#refreshReport').textContent='생성 완료';setTimeout(()=>$('#refreshReport').textContent='리포트 재생성',1400)};$('#copySummary').onclick=async()=>{const text='산단핏 AI는 한국산업단지공단 공장등록생산정보와 산업단지 통계를 활용해 입주기업의 성장 가능성, 협력사 후보, 지원사업을 추천하는 AI 성장진단 서비스입니다.';try{await navigator.clipboard.writeText(text);toast('제출요약을 클립보드에 복사했습니다.')}catch{toast(text)}};
+  </script>
+</body>
 </html>
